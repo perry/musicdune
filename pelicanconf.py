@@ -19,17 +19,17 @@ PLUGINS = ['plugins.assets']
 
 DEFAULT_PAGINATION = 10
 
-ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
+ARTICLE_URL = '{slug}/'
+ARTICLE_SAVE_AS = '{slug}/index.html'
 
-PAGE_URL = 'pages/{slug}/'
-PAGE_SAVE_AS = 'pages/{slug}/index.html'
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
 
 AUTHOR_URL = 'author/{name}/'
 AUTHOR_SAVE_AS = 'author/{name}/index.html'
 
-CATEGORY_URL = 'category/{name}/'
-CATEGORY_SAVE_AS = 'category/{name}/index.html'
+CATEGORY_URL = '{name}/'
+CATEGORY_SAVE_AS = '{name}/index.html'
 
 TAG_URL = 'tag/{name}/'
 TAG_SAVE_AS = 'tag/{name}/index.html'

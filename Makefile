@@ -17,6 +17,7 @@ help:
 	@echo '   make clean                       remove the generated files                 '
 	@echo '   make regenerate                  regenerate files upon modification         '
 	@echo '   make build                       build using publish conf and compress html '
+	@echo '   make gzip                        gzip all html + static text files          '
 	@echo '   make deploy                      make build and sync files to s3            '
 	@echo '                                                                               '
 
@@ -46,6 +47,7 @@ gzip:
 	find $(OUTPUTDIR)/ -iname '*.css' -exec gzip -n -f {} +
 	find $(OUTPUTDIR)/ -iname '*.js' -exec gzip -n -f {} +
 	for f in $$(find $(OUTPUTDIR)/ -iname '*.gz'); do mv -i "$$f" "$${f%%.gz}"; done
+	find $(OUTPUTDIR)/ -iname 'sitemap.xml' -exec gzip -n -f {} +
 
 deploy:
 	make build

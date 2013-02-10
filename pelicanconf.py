@@ -6,6 +6,9 @@ SITENAME = u'MusicDune'
 
 RELATIVE_URLS = False
 
+SITEURL = 'http://output.dev'
+FEED_DOMAIN = SITEURL
+
 TIMEZONE = 'Europe/London'
 
 DEFAULT_LANG = u'en'

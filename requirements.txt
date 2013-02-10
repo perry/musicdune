@@ -2,4 +2,4 @@ pelican==3.1.1
 Markdown==2.2.1
 webassets==0.8
 cssmin==0.1.4
-closure==20121212
+jsmin==2.0.2-1

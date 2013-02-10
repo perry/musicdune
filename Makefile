@@ -7,7 +7,7 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
-S3BUCKET=s3://musicdune
+S3BUCKET=s3://musicdune.com
 
 help:
 	@echo 'Makefile for a pelican Web site                                                '

@@ -38,6 +38,9 @@ build: clean
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	java -jar build/htmlcompressor.jar --remove-quotes --remove-intertag-spaces --compress-js --type html -r -o $(OUTPUTDIR) $(OUTPUTDIR)
 
+	# copy over extra files (robots.txt, favicon, etc)
+	if test -d $(BASEDIR)/extras; then cp $(BASEDIR)/extras/* $(OUTPUTDIR)/; fi
+
 	# remove dotfiles
 	# find $(OUTPUTDIR) -name '.*' -exec rm -rf {} \;
 	rm -rf output/theme/.webassets-cache

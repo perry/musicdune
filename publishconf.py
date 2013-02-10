@@ -5,8 +5,6 @@ import sys
 sys.path.append('.')
 from pelicanconf import *
 
-SITEURL = 'http://publish.dev'
-
 DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing

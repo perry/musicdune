@@ -3,7 +3,6 @@
 
 AUTHOR = u'Perry'
 SITENAME = u'MusicDune'
-SITEURL = u'http://output.dev'
 
 RELATIVE_URLS = False
 

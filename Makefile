@@ -4,6 +4,7 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
+PUBLISHDIR=$(BASEDIR)/publish
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
@@ -56,6 +57,10 @@ devserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	rm -rf $(PUBLISHDIR)
+	mkdir $(PUBLISHDIR)
+	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)
+	java -jar build/htmlcompressor-1.5.3.jar --type html -r -o $(PUBLISHDIR) $(PUBLISHDIR)
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)

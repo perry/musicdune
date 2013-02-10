@@ -3,14 +3,16 @@
 
 AUTHOR = u'Perry'
 SITENAME = u'MusicDune'
-SITEURL = ''
+SITEURL = u'http://output.dev'
+
+RELATIVE_URLS = False
 
 TIMEZONE = 'Europe/London'
 
 DEFAULT_LANG = u'en'
 
-# Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+THEME = 'themes/musicdune'
+
+PLUGINS = ['plugins.assets']
 
 DEFAULT_PAGINATION = 10

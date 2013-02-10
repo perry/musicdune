@@ -1,394 +1,78 @@
-/* line 1, ../../sass/components/_normalize.sass */
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
-/* ==========================================================================
- * HTML5 display definitions
- * ========================================================================== */
 /*
- * Correct `block` display not defined in IE 8/9.
- */
-/* line 14, ../../sass/components/_normalize.sass */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
-  display: block;
-}
+Syntax error: Inconsistent indentation: 6 spaces were used for indentation, but the rest of the document was indented using 4 spaces.
+        on line 80 of /Users/perry/Dropbox/projects/musicdune/themes/musicdune/sass/components/_normalize.sass
+        from line 3 of /Users/perry/Dropbox/projects/musicdune/themes/musicdune/sass/main.sass
 
-/*
- * Correct `inline-block` display not defined in IE 8/9.
- */
-/* line 33, ../../sass/components/_normalize.sass */
-audio,
-canvas,
-video {
-  display: inline-block;
-}
-
-/*
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-/* line 44, ../../sass/components/_normalize.sass */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/*
- * Address styling not present in IE 8/9.
- */
-/* line 53, ../../sass/components/_normalize.sass */
-[hidden] {
-  display: none;
-}
-
-/* ==========================================================================
- * Base
- * ========================================================================== */
-/*
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
- */
-/* line 67, ../../sass/components/_normalize.sass */
-html {
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-}
-
-/*
- * Remove default margin.
- */
-/* line 77, ../../sass/components/_normalize.sass */
-body {
-  margin: 0;
-}
-
-/* ==========================================================================
- * Links
- * ========================================================================== */
-/*
- * Address `outline` inconsistency between Chrome and other browsers.
- */
-/* line 89, ../../sass/components/_normalize.sass */
-a:focus {
-  outline: thin dotted;
-}
-
-/*
- * Improve readability when focused and also mouse hovered in all browsers.
- */
-/* line 97, ../../sass/components/_normalize.sass */
-a:active,
-a:hover {
-  outline: 0;
-}
-
-/* ==========================================================================
- * Typography
- * ========================================================================== */
-/*
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari 5, and Chrome.
- */
-/* line 111, ../../sass/components/_normalize.sass */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/*
- * Address styling not present in IE 8/9, Safari 5, and Chrome.
- */
-/* line 120, ../../sass/components/_normalize.sass */
-abbr[title] {
-  border-bottom: 1px dotted;
-}
-
-/*
- * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
- */
-/* line 128, ../../sass/components/_normalize.sass */
-b,
-strong {
-  font-weight: bold;
-}
-
-/*
- * Address styling not present in Safari 5 and Chrome.
- */
-/* line 137, ../../sass/components/_normalize.sass */
-dfn {
-  font-style: italic;
-}
-
-/*
- * Address differences between Firefox and other browsers.
- */
-/* line 145, ../../sass/components/_normalize.sass */
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-}
-
-/*
- * Address styling not present in IE 8/9.
- */
-/* line 155, ../../sass/components/_normalize.sass */
-mark {
-  background: yellow;
-  color: black;
-}
-
-/*
- * Correct font family set oddly in Safari 5 and Chrome.
- */
-/* line 164, ../../sass/components/_normalize.sass */
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, serif;
-  font-size: 1em;
-}
-
-/*
- * Improve readability of pre-formatted text in all browsers.
- */
-/* line 176, ../../sass/components/_normalize.sass */
-pre {
-  white-space: pre-wrap;
-}
-
-/*
- * Set consistent quote types.
- */
-/* line 184, ../../sass/components/_normalize.sass */
-q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
-}
-
-/*
- * Address inconsistent and variable font size in all browsers.
- */
-/* line 192, ../../sass/components/_normalize.sass */
-small {
-  font-size: 80%;
-}
-
-/*
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
-/* line 200, ../../sass/components/_normalize.sass */
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-/* line 208, ../../sass/components/_normalize.sass */
-sup {
-  top: -0.5em;
-}
-
-/* line 212, ../../sass/components/_normalize.sass */
-sub {
-  bottom: -0.25em;
-}
-
-/* ==========================================================================
- * Embedded content
- * ========================================================================== */
-/*
- * Remove border when inside `a` element in IE 8/9.
- */
-/* line 224, ../../sass/components/_normalize.sass */
-img {
-  border: 0;
-}
-
-/*
- * Correct overflow displayed oddly in IE 9.
- */
-/* line 232, ../../sass/components/_normalize.sass */
-svg:not(:root) {
-  overflow: hidden;
-}
-
-/* ==========================================================================
- * Figures
- * ========================================================================== */
-/*
- * Address margin not present in IE 8/9 and Safari 5.
- */
-/* line 244, ../../sass/components/_normalize.sass */
-figure {
-  margin: 0;
-}
-
-/* ==========================================================================
- * Forms
- * ========================================================================== */
-/*
- * Define consistent border, margin, and padding.
- */
-/* line 256, ../../sass/components/_normalize.sass */
-fieldset {
-  border: 1px solid silver;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-
-/*
- * 1. Correct `color` not being inherited in IE 8/9.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets.
- */
-/* line 267, ../../sass/components/_normalize.sass */
-legend {
-  border: 0;
-  padding: 0;
-}
-
-/*
- * 1. Correct font family not being inherited in all browsers.
- * 2. Correct font size not being inherited in all browsers.
- * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
- */
-/* line 278, ../../sass/components/_normalize.sass */
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  margin: 0;
-}
-
-/*
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
- */
-/* line 292, ../../sass/components/_normalize.sass */
-button,
-input {
-  line-height: normal;
-}
-
-/*
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
- * Correct `select` style inheritance in Firefox 4+ and Opera.
- */
-/* line 304, ../../sass/components/_normalize.sass */
-button,
-select {
-  text-transform: none;
-}
-
-/*
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
- */
-/* line 319, ../../sass/components/_normalize.sass */
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-  cursor: pointer;
-}
-
-/*
- * Re-set default cursor for disabled elements.
- */
-/* line 329, ../../sass/components/_normalize.sass */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/*
- * 1. Address box sizing set to `content-box` in IE 8/9.
- * 2. Remove excess padding in IE 8/9.
- */
-/* line 339, ../../sass/components/_normalize.sass */
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-/*
- * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
- *    (include `-moz` to future-proof).
- */
-/* line 351, ../../sass/components/_normalize.sass */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-}
-
-/*
- * Remove inner padding and search cancel button in Safari 5 and Chrome
- * on OS X.
- */
-/* line 363, ../../sass/components/_normalize.sass */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/*
- * Remove inner padding and border in Firefox 4+.
- */
-/* line 372, ../../sass/components/_normalize.sass */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-
-/*
- * 1. Remove default vertical scrollbar in IE 8/9.
- * 2. Improve readability and alignment in all browsers.
- */
-/* line 383, ../../sass/components/_normalize.sass */
-textarea {
-  overflow: auto;
-  vertical-align: top;
-}
-
-/* ==========================================================================
- * Tables
- * ========================================================================== */
-/*
- * Remove most spacing between table cells.
- */
-/* line 396, ../../sass/components/_normalize.sass */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+Backtrace:
+/Users/perry/Dropbox/projects/musicdune/themes/musicdune/sass/components/_normalize.sass:80
+/Users/perry/Dropbox/projects/musicdune/themes/musicdune/sass/main.sass:3
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:424:in `tabulate'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:101:in `each_with_index'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:382:in `each'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:382:in `each_with_index'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:382:in `tabulate'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:345:in `_to_tree'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:274:in `to_tree'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:223:in `visit_import'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:53:in `map'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:107:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:119:in `with_environment'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:106:in `visit_children'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:126:in `visit_root'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:37:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:98:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:315:in `_render'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.5/lib/sass/../sass/engine.rb:262:in `render'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:140:in `compile'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:126:in `timed'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:139:in `compile'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/logger.rb:45:in `red'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:138:in `compile'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:118:in `compile_if_required'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:103:in `run'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:101:in `each'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:101:in `run'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:126:in `timed'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/compiler.rb:100:in `run'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/commands/watch_project.rb:147:in `recompile'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rubygems/custom_require.rb:31:in `to_proc'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `call'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:73:in `run_callback'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:55:in `callback_action'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/path.rb:35:in `update'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:39:in `modified'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `each'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:37:in `modified'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/state/directory.rb:18:in `refresh'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `each'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:17:in `run'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `loop'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/backends/polling.rb:15:in `run'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm/monitor.rb:26:in `run'
+/Library/Ruby/Gems/1.8/gems/fssm-0.2.10/lib/fssm.rb:70:in `monitor'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/commands/watch_project.rb:87:in `perform'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/commands/base.rb:18:in `execute'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/commands/project_base.rb:19:in `execute'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/bin/compass:29
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/bin/compass:43:in `call'
+/Library/Ruby/Gems/1.8/gems/compass-0.13.alpha.0/bin/compass:43
+/usr/bin/compass:19:in `load'
+/usr/bin/compass:19
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Inconsistent indentation: 6 spaces were used for indentation, but the rest of the document was indented using 4 spaces.\A         on line 80 of /Users/perry/Dropbox/projects/musicdune/themes/musicdune/sass/components/_normalize.sass\A         from line 3 of /Users/perry/Dropbox/projects/musicdune/themes/musicdune/sass/main.sass"; }

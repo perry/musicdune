@@ -37,6 +37,10 @@ build: clean
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	java -jar build/htmlcompressor-1.5.3.jar --type html -r -o $(OUTPUTDIR) $(OUTPUTDIR)
 
+	# remove dotfiles
+	# find $(OUTPUTDIR) -name '.*' -exec rm -rf {} \;
+	rm -rf output/theme/.webassets-cache
+
 gzip:
 	find $(OUTPUTDIR)/ -iname '*.html' -exec gzip -n -f {} +
 	find $(OUTPUTDIR)/ -iname '*.css' -exec gzip -n -f {} +

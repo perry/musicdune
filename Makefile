@@ -4,37 +4,21 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
-PUBLISHDIR=$(BASEDIR)/publish
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
-FTP_HOST=localhost
-FTP_USER=anonymous
-FTP_TARGET_DIR=/
-
-SSH_HOST=localhost
-SSH_PORT=22
-SSH_USER=root
-SSH_TARGET_DIR=/var/www
-
-DROPBOX_DIR=~/Dropbox/Public/
+S3BUCKET=s3://musicdune
 
 help:
-	@echo 'Makefile for a pelican Web site                                        '
-	@echo '                                                                       '
-	@echo 'Usage:                                                                 '
-	@echo '   make html                        (re)generate the web site          '
-	@echo '   make clean                       remove the generated files         '
-	@echo '   make regenerate                  regenerate files upon modification '
-	@echo '   make publish                     generate using production settings '
-	@echo '   make serve                       serve site at http://localhost:8000'
-	@echo '   make devserver                   start/restart develop_server.sh    '
-	@echo '   ssh_upload                       upload the web site via SSH        '
-	@echo '   rsync_upload                     upload the web site via rsync+ssh  '
-	@echo '   dropbox_upload                   upload the web site via Dropbox    '
-	@echo '   ftp_upload                       upload the web site via FTP        '
-	@echo '   github                           upload the web site via gh-pages   '
-	@echo '                                                                       '
+	@echo 'Makefile for a pelican Web site                                                '
+	@echo '                                                                               '
+	@echo 'Usage:                                                                         '
+	@echo '   make html                        (re)generate the web site                  '
+	@echo '   make clean                       remove the generated files                 '
+	@echo '   make regenerate                  regenerate files upon modification         '
+	@echo '   make build                       build using publish conf and compress html '
+	@echo '   make deploy                      make build and sync files to s3            '
+	@echo '                                                                               '
 
 
 html: clean $(OUTPUTDIR)/index.html
@@ -49,33 +33,20 @@ clean:
 regenerate: clean
 	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
-serve:
-	cd $(OUTPUTDIR) && python -m SimpleHTTPServer
-
-devserver:
-	$(BASEDIR)/develop_server.sh restart
-
-publish:
+build: clean
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-	rm -rf $(PUBLISHDIR)
-	mkdir $(PUBLISHDIR)
-	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)
-	java -jar build/htmlcompressor-1.5.3.jar --type html -r -o $(PUBLISHDIR) $(PUBLISHDIR)
+	java -jar build/htmlcompressor-1.5.3.jar --type html -r -o $(OUTPUTDIR) $(OUTPUTDIR)
 
-ssh_upload: publish
-	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
+deploy: build
+	s3cmd sync --delete-removed $(OUTPUTDIR)/ $(S3BUCKET)/
 
-rsync_upload: publish
-	rsync -e "ssh -p $(SSH_PORT)" -P -rvz --delete $(OUTPUTDIR) $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
+	# sync html with gzip but without cache control
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding:gzip' --exclude '*.*' --include '*.html'
 
-dropbox_upload: publish
-	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
+	# sync css and jtml with gzip and cache control
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding:gzip' --add-header 'Cache-Control: max-age=31449600' --exclude '*.*' --include '*.js' --include '*.css'
 
-ftp_upload: publish
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
+	# sync everything else without gzip but with cache control
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Cache-Control: max-age=31449600' --include '*.*' --exclude '*.js' --exclude '*.css' --exclude '*.html'
 
-github: publish
-	ghp-import $(OUTPUTDIR)
-	git push origin gh-pages
-
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload github
+.PHONY: html help clean regenerate build deploy

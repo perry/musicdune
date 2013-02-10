@@ -64,4 +64,6 @@ deploy:
 	# this has to be the last command as headers are set on the files above
 	s3cmd sync --delete-removed $(OUTPUTDIR)/ $(S3BUCKET)/
 
+	make clean
+
 .PHONY: html help clean regenerate build deploy

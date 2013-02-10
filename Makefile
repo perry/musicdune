@@ -51,15 +51,17 @@ deploy:
 	make build
 	make gzip
 
-	s3cmd sync --delete-removed $(OUTPUTDIR)/ $(S3BUCKET)/
-
 	# sync html with gzip but without cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header='Content-Encoding:gzip' --exclude '*.*' --include '*.html'
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding: gzip' --exclude '*.*' --include '*.html'
 
 	# sync css and jtml with gzip and cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header='Content-Encoding:gzip' --add-header='Cache-Control:max-age=31449600' --exclude '*.*' --include '*.js' --include '*.css'
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding: gzip' --add-header 'Cache-Control: max-age=31449600' --exclude '*.*' --include '*.js' --include '*.css'
 
 	# sync everything else without gzip but with cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header='Cache-Control:max-age=31449600' --include '*.*' --exclude '*.js' --exclude '*.css' --exclude '*.html'
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Cache-Control: max-age=31449600' --include '*.*' --exclude '*.js' --exclude '*.css' --exclude '*.html'
+
+	# remove files that no longer exist
+	# this has to be the last command as headers are set on the files above
+	s3cmd sync --delete-removed $(OUTPUTDIR)/ $(S3BUCKET)/
 
 .PHONY: html help clean regenerate build deploy

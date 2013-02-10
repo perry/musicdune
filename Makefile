@@ -35,7 +35,7 @@ regenerate: clean
 
 build: clean
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-	java -jar build/htmlcompressor-1.5.3.jar --remove-surrounding-spaces all --remove-quotes --remove-intertag-spaces --type html -r -o $(OUTPUTDIR) $(OUTPUTDIR)
+	java -jar build/htmlcompressor.jar --remove-quotes --remove-intertag-spaces --compress-js --type html -r -o $(OUTPUTDIR) $(OUTPUTDIR)
 
 	# remove dotfiles
 	# find $(OUTPUTDIR) -name '.*' -exec rm -rf {} \;

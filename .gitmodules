@@ -1,0 +1,3 @@
+[submodule "content"]
+	path = content
+	url = git@bitbucket.org:perryroper/musicdune-content.git

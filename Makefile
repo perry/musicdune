@@ -37,16 +37,25 @@ build: clean
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	java -jar build/htmlcompressor-1.5.3.jar --type html -r -o $(OUTPUTDIR) $(OUTPUTDIR)
 
-deploy: build
+gzip:
+	find $(OUTPUTDIR)/ -iname '*.html' -exec gzip -n -f {} +
+	find $(OUTPUTDIR)/ -iname '*.css' -exec gzip -n -f {} +
+	find $(OUTPUTDIR)/ -iname '*.js' -exec gzip -n -f {} +
+	for f in $$(find $(OUTPUTDIR)/ -iname '*.gz'); do mv -i "$$f" "$${f%%.gz}"; done
+
+deploy:
+	make build
+	make gzip
+
 	s3cmd sync --delete-removed $(OUTPUTDIR)/ $(S3BUCKET)/
 
 	# sync html with gzip but without cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding:gzip' --exclude '*.*' --include '*.html'
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header='Content-Encoding:gzip' --exclude '*.*' --include '*.html'
 
 	# sync css and jtml with gzip and cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding:gzip' --add-header 'Cache-Control: max-age=31449600' --exclude '*.*' --include '*.js' --include '*.css'
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header='Content-Encoding:gzip' --add-header='Cache-Control:max-age=31449600' --exclude '*.*' --include '*.js' --include '*.css'
 
 	# sync everything else without gzip but with cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Cache-Control: max-age=31449600' --include '*.*' --exclude '*.js' --exclude '*.css' --exclude '*.html'
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header='Cache-Control:max-age=31449600' --include '*.*' --exclude '*.js' --exclude '*.css' --exclude '*.html'
 
 .PHONY: html help clean regenerate build deploy

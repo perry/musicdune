@@ -15,7 +15,7 @@ DEFAULT_LANG = u'en'
 
 THEME = 'themes/musicdune'
 
-PLUGINS = ['plugins.assets']
+PLUGINS = ['plugins.assets', 'pelican.plugins.sitemap']
 
 DEFAULT_PAGINATION = 10
 
@@ -33,3 +33,17 @@ CATEGORY_SAVE_AS = '{name}/index.html'
 
 TAG_URL = 'tag/{name}/'
 TAG_SAVE_AS = 'tag/{name}/index.html'
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'daily',
+        'indexes': 'always',
+        'pages': 'daily'
+    }
+}

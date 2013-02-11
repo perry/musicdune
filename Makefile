@@ -63,7 +63,8 @@ deploy:
 	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding: gzip' --add-header 'Cache-Control: max-age=31449600' --exclude '*.*' --include '*.js' --include '*.css'
 
 	# sync everything else without gzip but with cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Cache-Control: max-age=31449600' --include '*.*' --exclude '*.js' --exclude '*.css' --exclude '*.html'
+	# temporarily removed caching on everything
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --include '*.*' --exclude '*.js' --exclude '*.css' --exclude '*.html'
 
 	# remove files that no longer exist
 	# this has to be the last command as headers are set on the files above

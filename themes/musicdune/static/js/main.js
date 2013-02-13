@@ -1,11 +1,7 @@
 /* Prevent links in 'standalone' iOS apps opening in Safari */
-(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
+(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone");
 
-/*
-  * Normalized hide address bar for iOS & Android
-  * (c) Scott Jehl, scottjehl.com
-  * MIT License
-*/
+/*! Normalized address bar hiding for iOS & Android (c) @scottjehl MIT License */
 (function( win ){
     var doc = win.document;
 
@@ -13,7 +9,7 @@
     if( !location.hash && win.addEventListener ){
 
         //scroll to 1
-        window.scrollTo( 0, 1 );
+        win.scrollTo( 0, 1 );
         var scrollTop = 1,
             getScrollTop = function(){
                 return win.pageYOffset || doc.compatMode === "CSS1Compat" && doc.documentElement.scrollTop || doc.body.scrollTop || 0;
@@ -36,6 +32,6 @@
                     win.scrollTo( 0, scrollTop === 1 ? 0 : 1 );
                 }
             }, 0);
-        } );
+        }, false );
     }
 })( this );

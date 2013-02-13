@@ -1,0 +1,10 @@
+$logo-ratio: 283/ 375
+$logo-width: 120px
+$logo-height: $logo-width * $logo-ratio
+.site-logo
+    display: block
+    @extend %image-replace
+    background: inline-image('musicdune-logo-box.svg') no-repeat
+    @include background-size(100%)
+    width: $logo-width
+    height: $logo-height

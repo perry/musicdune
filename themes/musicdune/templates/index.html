@@ -2,30 +2,22 @@
 
 {% block content %}
     <section>
-        {% block content_title %}
-            <h2>All articles</h2>
-        {% endblock %}
-
-        <ol>
         {% for article in articles_page.object_list %}
-            <li>
-                <article>
-                    <header>
-                        <h2><a href="/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-                    </header>
-                    <footer>
-                        <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
-                        {% if article.author %}
-                            <address>By <a href="/{{ article.author.url }}">{{ article.author }}</a></address>
-                        {% endif %}
-                    </footer>
-                    <div>
-                        {{ article.summary }}
-                    </div>
-                </article>
-            </li>
+            <article>
+                <header>
+                    <h2><a href="/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+                </header>
+                <footer>
+                    <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
+                    {% if article.author %}
+                        <address>By <a href="/{{ article.author.url }}">{{ article.author }}</a></address>
+                    {% endif %}
+                </footer>
+                <div>
+                    {{ article.summary }}
+                </div>
+            </article>
         {% endfor %}
-        </ol>
 
         {% include 'pagination.html' %}
     </section>

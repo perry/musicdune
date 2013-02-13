@@ -56,11 +56,11 @@ deploy:
 	make build
 	make gzip
 
-	# sync html with gzip but without cache control
-	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding: gzip' --exclude '*.*' --include '*.html'
-
 	# sync css and js with gzip and cache control
 	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding: gzip' --add-header 'Cache-Control: max-age=31449600' --exclude '*.*' --include '*.js' --include '*.css'
+
+	# sync html with gzip but without cache control
+	s3cmd sync --progress -M --acl-public $(OUTPUTDIR)/ $(S3BUCKET)/ --add-header 'Content-Encoding: gzip' --exclude '*.*' --include '*.html'
 
 	# sync everything else without gzip but with cache control
 	# temporarily removed caching on everything

@@ -7,26 +7,39 @@
 
     <title>{% block title %}Home{% endblock title %} - {{ SITENAME }}</title>
 
-    <!-- <meta name="description" content=""> -->
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <!-- width=device-width causes the iPhone 5 to letterbox the app, so
+        we want to exclude it for iPhone 5 to allow full screen apps -->
+    <meta name="viewport" content="initial-scale=1.0" media="(device-height: 568px)" />
 
     {% assets filters="cssmin", output="css/main.%(version)s.css", "css/main.css" %}
         <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
+
+    <meta name="apple-mobile-web-app-title" content="{{ SITENAME }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="ios-splash-1096.png" rel="apple-touch-startup-image" media="(device-height: 568px)">
+    <link href="ios-splash-960.png" rel="apple-touch-startup-image" sizes="640x960" media="(device-height: 480px)">
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144.png">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     {% endblock head %}
 </head>
 
 <body>
     <header>
-        <a href="/">{{ SITENAME }}</a>
+        <a href="/" class="site-logo">{{ SITENAME }}</a>
     </header>
 
     {% block content %}{% endblock %}
 
     <footer></footer>
 
-    {#% assets filters="jsmin", output="js/main.%(version)s.js", "js/main.js" %#}
-    {#% endassets %#}
+    {% assets filters="jsmin", output="js/main.%(version)s.js", "js/main.js" %}
+        <script src="/{{ ASSET_URL }}"></script>
+    {% endassets %}
 
     {% if GOOGLE_ANALYTICS %}
     <script type="text/javascript">

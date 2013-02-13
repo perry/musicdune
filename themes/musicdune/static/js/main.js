@@ -1,3 +1,6 @@
+/* Prevent links in 'standalone' iOS apps opening in Safari */
+(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")
+
 /*
   * Normalized hide address bar for iOS & Android
   * (c) Scott Jehl, scottjehl.com

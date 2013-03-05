@@ -4,26 +4,30 @@
 
 {% block content %}
     <section>
-        <header>
-            <h2>
-                <a href="/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-            </h2>
-        </header>
+        <div class="featured-image">
+            <img src="{{ article.image }}"{% if article.image_caption %} alt="{{ article.image_caption }}"{% endif %}>
+        </div>
 
-        <footer>
-            <abbr title="{{ article.date.isoformat() }}">
-                {{ article.locale_date }}
-            </abbr>
+        <div class="article-content">
+            <header>
+                <h2>{{ article.title }}</h2>
+            </header>
 
-            {% if article.author %}
-            <address>
-                By <a href="/{{ article.author.url }}">{{ article.author }}</a>
-            </address>
-            {% endif %}
-        </footer>
+            <!--footer>
+                <abbr title="{{ article.date.isoformat() }}">
+                    {{ article.locale_date }}
+                </abbr>
 
-        <div>
-            {{ article.content }}
+                {% if article.author %}
+                <address>
+                    By <a href="/{{ article.author.url }}">{{ article.author }}</a>
+                </address>
+                {% endif %}
+            </footer-->
+
+            <div>
+                {{ article.content }}
+            </div>
         </div>
     </section>
 {% endblock %}

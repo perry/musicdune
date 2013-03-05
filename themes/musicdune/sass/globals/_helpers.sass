@@ -40,3 +40,8 @@
         display: inline-block
         vertical-align: middle
         height: 100%
+
+@mixin breakpoint($point)
+    @if $point == mobile
+        @media (max-width: 767px)
+            @content

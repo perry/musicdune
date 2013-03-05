@@ -1,6 +1,5 @@
-$logo-ratio: 1.61803398875
-$logo-width: 156px
-$logo-height: 96px
+$logo-width: 100%
+$logo-height: $logo-width / $ratio
 .site-logo
     display: block
     @extend %image-replace
@@ -8,3 +7,7 @@ $logo-height: 96px
     @include background-size(100%)
     width: $logo-width
     height: $logo-height
+
+.site-header
+    margin:
+        bottom: 1em

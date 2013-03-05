@@ -1,0 +1,40 @@
+.site-wrapper
+    max-width: 1337px
+    margin: 0 auto
+    position: relative
+    @extend %clearfix
+
+.site-nav
+    float: left
+    width: 20%
+    padding:
+        right: $ratio * 1%
+    background: #fff
+    @include transition(left 0.2s linear)
+    left: 0
+    @include breakpoint(mobile)
+        float: none
+        position: absolute
+        left: -20%
+
+.site-main
+    float: left
+    width: 80%
+    @include breakpoint(mobile)
+        float: none
+        width: 100%
+
+.featured-image
+    float: right
+    width: (100% / $ratio) - $ratio
+    margin:
+        bottom: 1% * $ratio
+        left: 1% * $ratio
+    @include breakpoint(mobile)
+        float: none
+        width: 100%
+        margin:
+            left: 0
+// .site-aside
+//     float: left
+//     width: (100% - (100% / $ratio))

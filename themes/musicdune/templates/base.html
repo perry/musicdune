@@ -29,15 +29,35 @@
 </head>
 
 <body>
-    <header>
-        <a href="/" class="site-logo">{{ SITENAME }}</a>
-    </header>
+    <div class="site-wrapper">
+        <nav class="site-nav">
+            <a href="/" class="site-logo" tabindex="-1">{{ SITENAME }}</a>
 
-    {% block content %}{% endblock %}
+            <form class="site-search">
+                <input type="text" class="search-field" placeholder="Search">
+            </form>
 
-    <footer></footer>
+            <ul>
+                <li><a href="/">This could be a link</a></li>
+                <li><a href="/">This could be a link</a></li>
+                <li><a href="/">This could be a link</a></li>
+                <li><a href="/">This could be a link</a></li>
+                <li><a href="/">This could be a link</a></li>
+            </ul>
+        </nav>
 
-    {% assets filters="jsmin", output="js/main.%(version)s.js", "js/main.js" %}
+        <div class="site-main">{% block content %}{% endblock %}</div>
+
+<!--         <aside class="site-aside">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis turpis ipsum, vel rutrum tellus. Nullam metus ipsum, porta vel lacinia vel, ornare et lorem. Nunc in turpis dolor. Nunc arcu est, ullamcorper ut venenatis a, mollis ac diam. Vestibulum posuere neque vitae eros lobortis quis ullamcorper quam commodo. Nullam cursus tortor quis risus sagittis gravida. Aenean elementum semper nisl, ac consequat nunc volutpat fringilla. Nam ac odio ullamcorper dolor porta semper ut eu est.</p>
+
+            <p>Fusce eleifend orci eu nulla sagittis vestibulum. Maecenas id orci ut arcu pulvinar congue. Curabitur accumsan, dui vitae faucibus euismod, metus sem molestie mi, a mollis arcu diam vel turpis. Pellentesque ullamcorper lacus sed dolor imperdiet ullamcorper. Nunc lacinia suscipit massa non congue. Vivamus dignissim tincidunt aliquam. Integer dictum elementum leo, non bibendum mauris molestie ac. Aenean gravida mollis quam in adipiscing. Pellentesque auctor, elit nec interdum aliquet, quam mauris eleifend massa, ullamcorper laoreet enim risus eget purus. Sed tortor elit, aliquet sit amet consectetur eget, dapibus sed erat.</p>
+        </aside>
+ -->
+        <footer></footer>
+    </div>
+
+    {% assets filters="jsmin", output="js/main.%(version)s.js", "js/libs/jquery.js", "js/main.js" %}
         <script src="/{{ ASSET_URL }}"></script>
     {% endassets %}
 

@@ -35,3 +35,16 @@
         }, false );
     }
 })( this );
+
+$(function() {
+    var siteNav = $('.site-nav');
+    var siteLogo = $('.site-logo');
+    var goldenRatio = 1.618;
+    var logoResize = function() {
+        siteLogo.height(siteNav.width() / goldenRatio);
+    };
+    logoResize();
+    $(window).on('resize', function() {
+        logoResize();
+    });
+});

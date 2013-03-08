@@ -1,0 +1,1 @@
+export YUI_COMPRESSOR_PATH="./build/yuicompressor.jar"

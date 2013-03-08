@@ -3,7 +3,7 @@
 {% block content %}
     <ul>
     {% for category, articles in categories %}
-        <li><a href="/{{ category.url }}">{{ category }}</a></li>
+        <li><a href="/{{ category.url }}" data-ajax-load="true">{{ category }}</a></li>
     {% endfor %}
     </ul>
 {% endblock %}

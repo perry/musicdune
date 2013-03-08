@@ -5,12 +5,12 @@
         {% for article in articles_page.object_list %}
             <article>
                 <header>
-                    <h2><a href="/{{ article.url }}" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+                    <h2><a href="/{{ article.url }}" data-ajax-load="true">{{ article.title }}</a></h2>
                 </header>
                 <footer>
                     <abbr title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr>
                     {% if article.author %}
-                        <address>By <a href="/{{ article.author.url }}">{{ article.author }}</a></address>
+                        <address>By <a href="/{{ article.author.url }}" data-ajax-load="true">{{ article.author }}</a></address>
                     {% endif %}
                 </footer>
                 <div>

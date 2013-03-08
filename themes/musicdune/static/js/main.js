@@ -50,6 +50,29 @@ $(function() {
         logoResize();
     });
 
+    function loadData(anchor) {
+        var target = anchor.attr('href');
+
+        if(!localStorage.getItem(target)) {
+            var request = $.ajax({
+                type: 'GET',
+                url: target
+            });
+
+            request.done(function(data) {
+                if(localStorage) {
+                    localStorage.setItem(target, data);
+                }
+                ajaxUpdate(target, data);
+            });
+            request.fail(function() {
+                window.location = target;
+            });
+        } else {
+            ajaxUpdate(target, localStorage.getItem(target));
+        }
+    }
+
     function ajaxUpdate(url, data) {
         var response = $(data);
         var contentReplace = response.find('[data-ajax-content]');

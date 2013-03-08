@@ -38,11 +38,9 @@
             </form>
 
             <ul>
-                <li><a href="/">This could be a link</a></li>
-                <li><a href="/">This could be a link</a></li>
-                <li><a href="/">This could be a link</a></li>
-                <li><a href="/">This could be a link</a></li>
-                <li><a href="/">This could be a link</a></li>
+                {% for article in articles %}
+                    <li><a href="/{{ article.url }}" data-ajax-load="true">{{ article.title }}</a></li>
+                {% endfor %}
             </ul>
         </nav>
 

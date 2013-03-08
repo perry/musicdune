@@ -37,6 +37,8 @@
 })( this );
 
 $(function() {
+    var History = window.History;
+
     var siteNav = $('.site-nav');
     var siteLogo = $('.site-logo');
     var goldenRatio = 1.618;

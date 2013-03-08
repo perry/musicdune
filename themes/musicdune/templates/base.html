@@ -57,7 +57,7 @@
         <footer></footer>
     </div>
 
-    {% assets filters="jsmin", output="js/main.%(version)s.js", "js/libs/jquery.js", "js/main.js" %}
+    {% assets filters="jsmin", output="js/main.%(version)s.js", "js/libs/jquery.js", "js/libs/jquery.history.js", "js/main.js" %}
         <script src="/{{ ASSET_URL }}"></script>
     {% endassets %}
 

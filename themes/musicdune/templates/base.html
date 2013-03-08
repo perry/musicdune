@@ -12,7 +12,7 @@
         we want to exclude it for iPhone 5 to allow full screen apps -->
     <meta name="viewport" content="initial-scale=1.0" media="(device-height: 568px)" />
 
-    {% assets filters="cssmin", output="css/main.%(version)s.css", "css/main.css" %}
+    {% assets filters="yui_css", output="css/main.%(version)s.css", "css/main.css" %}
         <link rel="stylesheet" href="/{{ ASSET_URL }}">
     {% endassets %}
 

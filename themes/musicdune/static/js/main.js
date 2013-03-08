@@ -50,6 +50,23 @@ $(function() {
         logoResize();
     });
 
+    function ajaxUpdate(url, data) {
+        var response = $(data);
+        var contentReplace = response.find('[data-ajax-content]');
+
+        contentReplace.each(function() {
+            var contentID = $(this).attr('id');
+            $('#' + contentID).replaceWith($(this));
+        });
+
+        // Searching the $(data) object for title didn't work
+        var responseTitle = data.match(/<title>(.*?)<\/title>/)[1];
+
+        History.pushState(null, responseTitle, url);
+
+        googleAnalytics(url);
+    }
+
     function googleAnalytics(url) {
         if(typeof(_gaq) !== 'undefined') {
             _gaq.push(['_trackPageview', url]);

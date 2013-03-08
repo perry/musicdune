@@ -49,4 +49,11 @@ $(function() {
     $(window).on('resize', function() {
         logoResize();
     });
+
+    function googleAnalytics(url) {
+        if(typeof(_gaq) !== 'undefined') {
+            _gaq.push(['_trackPageview', url]);
+            _gaq.push(['_trackPageLoadTime']);
+        }
+    }
 });

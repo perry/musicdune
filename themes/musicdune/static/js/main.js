@@ -96,4 +96,10 @@ $(function() {
             _gaq.push(['_trackPageLoadTime']);
         }
     }
+
+    $(document).on('click', 'a[data-ajax-load="true"]', function(e) {
+        e.preventDefault();
+
+        loadData($(this));
+    });
 });
